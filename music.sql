@@ -14,7 +14,7 @@ CREATE TABLE songs (
     song_id INT PRIMARY KEY,
     name VARCHAR(255),
     album_id INT,
-    track_number INT NOT NULL UNIQUE,
+    track_number INT NOT NULL,
     duration_seconds INT,
     FOREIGN KEY (album_id) REFERENCES albums(album_id)
 );
