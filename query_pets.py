@@ -3,8 +3,9 @@ import sys
 def display_person(person):
     print(f"{person[1]} {person[2]}, {person[3]} years old")
 
-def display_pet(pet):
-    print(f"{pet[1]} owned {pet[2]}, a {pet[3]}, that was {pet[4]} years old")
+def display_pet(person_name,pet):
+    #print(pet)
+    print(f"{person_name} owned {pet[0]}, a {pet[1]}, that was {pet[2]} years old")
 conn = lite.connect('pets.db')
 with conn:
     cursor = conn.cursor()
@@ -28,9 +29,10 @@ with conn:
                 pets = cursor.fetchall()
 
                 if pets:
-                    print("Owned pets:")
+                    person_name=person[1]+" "+person[2]
                     for pet in pets:
-                        display_pet(pet)
+                        
+                        display_pet(person_name,pet)
                 else:
                     print("This person does not own any pet !!!! :( ")
             else:
