@@ -32,5 +32,6 @@ with conn:
     cursor.executemany("INSERT INTO person VALUES (?, ?, ?, ?)", person_data)
     cursor.executemany("INSERT INTO pet VALUES (?, ?, ?, ?, ?)", pet_data)
     cursor.executemany("INSERT INTO person_pet VALUES (?, ?)", person_pet_data)
-    
 
+
+conn.close()
